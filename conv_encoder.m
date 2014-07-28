@@ -29,7 +29,7 @@ err_insert=zeros(1,length(y1));
 rnd1=rand(1,length(y1));
 n_err=0;
 for i=1:length(rnd1)
-    if rnd1(i)<=0.9995
+    if rnd1(i)<=0.999
         err_insert(i)=0;
     else
         err_insert(i)=1;
