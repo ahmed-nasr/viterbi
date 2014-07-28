@@ -1,5 +1,5 @@
 %x=[0 1 0 1 1 1 0 0 1 0 1 0 0 0 1 0 0];
-n_pack=100;
+n_pack=300;
 bits_per_pack=20000;
 n_err_vec=zeros(1,n_pack);
 err_cnt_vec=zeros(1,n_pack);
