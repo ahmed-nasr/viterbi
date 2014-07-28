@@ -39,15 +39,40 @@ for i=1:length(rnd1)
     end
 end
 y2=xor(y1,err_insert);
-rx=viterbi_dec(y2);
-err_cnt=0;
+rx3=viterbi_dec_3st(y2);
+rx4=viterbi_dec_4st(y2);
+rx5=viterbi_dec_5st(y2);
+
+
+err_cnt3=0;
+err_cnt4=0;
+err_cnt5=0;
+
 for i=1:length(x)
-    if x(i)~=rx(i)
-        err_cnt=err_cnt+1;
+    if x(i)~=rx3(i)
+        err_cnt3=err_cnt3+1;
+    end
+end
+for i=1:length(x)
+    if x(i)~=rx4(i)
+        err_cnt4=err_cnt4+1;
+    end
+end
+for i=1:length(x)
+    if x(i)~=rx5(i)
+        err_cnt5=err_cnt5+1;
     end
 end
 n_err_vec(k)=n_err;
-err_cnt_vec(k)=err_cnt
+err_cnt_vec3(k)=err_cnt3;
+err_cnt_vec4(k)=err_cnt4;
+err_cnt_vec5(k)=err_cnt5;
+
+
 end
 err_rate_before_fec=sum(n_err_vec)/(n_pack*bits_per_pack)
-err_rate_after_fec=sum(err_cnt_vec)/(n_pack*bits_per_pack)
+
+err_rate_after_fec_3st=sum(err_cnt_vec3)/(n_pack*bits_per_pack)
+err_rate_after_fec_4st=sum(err_cnt_vec4)/(n_pack*bits_per_pack)
+err_rate_after_fec_5st=sum(err_cnt_vec5)/(n_pack*bits_per_pack)
+
